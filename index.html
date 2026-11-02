@@ -5,26 +5,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Asteroidi</title>
 <style>
+/* Pamata izkārtojums — šīs rindas nemaini */
 body { font-family: Arial, sans-serif; max-width: 680px; margin: 24px auto; padding: 16px; line-height: 1.6; }
-h1 { text-align: center; } 
-button, input { font: inherit; padding: 10px; margin: 4px; }
-button { cursor: pointer; }
-img { max-width: 100%; height: auto; }
+button, input { font: inherit; padding: 10px 16px; margin: 6px 0; cursor: pointer; }
+img, audio { max-width: 100%; }
 [hidden] { display: none !important; }
-body { background-color: #a7ffa7; color: #17212b; }
-button { background-color: #245b91; color: white; border: 0; border-radius: 8px; }
+
+/* NOFORMĒ ŠEIT: pielieto 2.1. un 2.2. nodarbībā apgūto CSS */
+body {
+  background-color: #a8f599;
+  color: #222222;
+}
+
+h1 {
+  color: #000000; font-size:35px; text-align:center;
+}
+
+.noteikumi {
+  background-color: #4ddb0b;
+  color: #222222;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.laukums {
+  width: 360px;
+  padding: 20px;
+  border: 4px solid #fdfdfd;
+  background-color: #36ce28;
+  box-sizing: border-box;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 100%;
+  text-align: center;
+}
+
+button {
+  background-color: #f73016;
+  color: #f8f8f3;
+  border: 0;
+  border-radius: 8px; 
+}
 </style>
 </head>
 <body>
 <h1>Asteroidi</h1>
-<p>Iznīcini asteroidus. Spied uz atstarpi, lai izšautu.</p>
-<img src="atteli/varonis.svg" alt="Zils kvadrātveida robots" width="128">
-<p>Uzvaras skaņa:</p>
-<audio controls src="skanas/klikskis.wav"></audio>
-<p id="punkti">Punkti: 0</p>
-<button onclick="savakt()">Savākt zvaigzni</button>
+<p>Spēles mērķis ir iznīcināt asteroidus, lai iegūtu punktus un izvairītos no tiem.</p>
+<section class="noteikumi">
+  <h2>Noteikumi</h2>
+  <p>Uz šīs lapas, vari uzspiest uz pogas ar tekstu "Savākt punktu" lai iegūtu punktus un noklausīties šaušanas skaņu.</p>
+</section>
+</br>
+<div class="laukums">
+  <h2>Spēles laukums</h2>
+  <img src="atteli/char_sprite.png" alt="Kosmosa kuģis" width="128">
+  <p>Lodes izšaušanas skaņa:</p>
+  <audio controls src="skanas/fire.wav"></audio>
+  <p id="punkti">Punkti: 0</p>
+  <button onclick="savakt()">Savākt punktu</button>
+</div>
 <script>
-// Gatava poga. Šajā tēmā mācies noformēt lapu un sakārtot failus.
+// Gatava punktu poga — šo skriptu nemaini.
 let punkti = 0;
 function savakt() {
   punkti = punkti + 1;
